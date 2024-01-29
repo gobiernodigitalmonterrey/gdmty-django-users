@@ -1,2 +1,3 @@
-# gdmty_django_usuarios
-gdmty_django_usuarios
+# gdmty-django-usuarios
+
+gdmty-django-usuarios
