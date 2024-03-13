@@ -1,6 +1,4 @@
 from rest_framework import viewsets
-
-from apirest.utils import verificar_token
 from .models import User, Group
 from django.contrib.auth.models import Permission
 from .serializers import UserSerializer, GroupSerializer, PermissionSerializer
@@ -9,6 +7,7 @@ from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from gdmty_django_recaptcha_enterprise.recaptcha import RecaptchaEnterprise
 from django.conf import settings
+from decorators import token_verify
 
 recaptcha = RecaptchaEnterprise(
     settings.RECAPTCHA_ENTERPRISE_PROJECT_ID,
@@ -35,15 +34,15 @@ class UserViewSet(viewsets.ModelViewSet):
         else:
             return Response('Unauthorized', status=401)
 
-    @verificar_token(recaptcha, 'verify')
+    @token_verify('verify')
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
 
-    @verificar_token(recaptcha, 'verify')
+    @token_verify(recaptcha, 'verify')
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
 
-    @verificar_token(recaptcha, 'verify')
+    @token_verify(recaptcha, 'verify')
     def partial_update(self, request, *args, **kwargs):
         return super().partial_update(request, *args, **kwargs)
 
@@ -67,11 +66,11 @@ class GroupViewSet(viewsets.ModelViewSet):
         else:
             return Response('Unauthorized', status=401)
 
-    @verificar_token(recaptcha, 'verify')
+    @token_verify(recaptcha, 'verify')
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
 
-    @verificar_token(recaptcha, 'verify')
+    @token_verify(recaptcha, 'verify')
     def partial_update(self, request, *args, **kwargs):
         return super().partial_update(request, *args, **kwargs)
 
@@ -95,11 +94,11 @@ class PermissionViewSet(viewsets.ModelViewSet):
         else:
             return Response('Unauthorized', status=401)
 
-    @verificar_token(recaptcha, 'verify')
+    @token_verify(recaptcha, 'verify')
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
 
-    @verificar_token(recaptcha, 'verify')
+    @token_verify(recaptcha, 'verify')
     def partial_update(self, request, *args, **kwargs):
         return super().partial_update(request, *args, **kwargs)
 
