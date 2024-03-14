@@ -21,4 +21,4 @@ from django.apps import AppConfig
 
 class GdmtyDjangoUsersConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'gdmty-django-users'
+    name = 'gdmty_django_users'
