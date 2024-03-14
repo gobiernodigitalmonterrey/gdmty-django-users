@@ -6,13 +6,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gdmty-drf-firebase-auth"
-version = "24.1.1"
+version = "24.3.0"
 description = "Custom Django Rest Framework authentication backend based on email and password for users in Administration panel with reCaptcha token verification."
 readme = "README.md"
 authors = [{ name="Gobierno de Monterrey", email="cesar.benjamin@monterrey.gob.mx" }]
 license = { file = "LICENSE" }
 classifiers = [
-    "License :: OSI Approved :: Apache Software License",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
@@ -27,20 +27,18 @@ dependencies = [
     "auditlog >= 0.0.5",
     "tomli; python_version < '3.11'",
 ]
-optional-dependencies = [
-    "gdmty-django-recaptcha-enterprise"
-]
+
 requires-python = ">=3.10"
 
 [project.optional-dependencies]
 dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
 
 [project.urls]
-"Homepage" = "https://github.com/SIGAMty/gdmty-django-users"
-"Bug Tracker" = "https://github.com/SIGAMty/gdmty-django-users/issues"
+"Homepage" = "https://github.com/gobiernodigital/gdmty-django-users"
+"Bug Tracker" = "https://github.com/gobiernodigital/gdmty-django-users/issues"
 
 [tool.bumpver]
-current_version = "24.1.1"
+current_version = "24.3.0"
 version_pattern = "MAJOR.MINOR.PATCH[-PYTAGNUM]"
 commit_message = "bump version {old_version} -> {new_version}"
 tag_message = "{new_version}"
