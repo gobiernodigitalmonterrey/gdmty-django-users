@@ -1,18 +1,29 @@
+#!-*- coding: utf-8 -*-
+"""
+Authentication backend for Django's Administration panel users based on email and password
+This packages adds features such as group permissions and reCaptcha enterprise token verification.
+
+This package is published as free software under the terms of the Apache License, Version 2.0. Is developed by
+Dirección de Gobierno Digital of the Secretaría de Innovación y Gobierno Abierto of Municipality of Monterrey.
+
+Authors: ['César Benjamín García Martínez <mathereall@gmail.com>', 'Miguel Angel Hernández Cortés
+<miguelhdezc12@gmail.com>', 'César Guillermo Vázquez Álvarez <chechar.2001@gmail.com>']
+Email: gobiernodigital@monterrey.gob.mx
+GitHub: https://github.com/gobiernodigitalmonterrey/gdmty-drf-firebase-auth
+Package: gdmty_django_users
+PyPi: https://pypi.org/project/gdmty-django-users/
+License: Apache 2.0
+
+"""
+
 from rest_framework import viewsets
 from .models import User, Group
 from django.contrib.auth.models import Permission
 from .serializers import UserSerializer, GroupSerializer, PermissionSerializer
-from .permissions import IsAuthenticatedAndSelfOrIsStaff, IsAuthenticatedAndObjUserOrIsStaff
+from .permissions import IsAuthenticatedAndSelfOrIsStaff
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
-from gdmty_django_recaptcha_enterprise.recaptcha import RecaptchaEnterprise
-from django.conf import settings
-from decorators import token_verify
-
-recaptcha = RecaptchaEnterprise(
-    settings.RECAPTCHA_ENTERPRISE_PROJECT_ID,
-    settings.RECAPTCHA_ENTERPRISE_SITE_KEY_VERIFY,
-    settings.RECAPTCHA_ENTERPRISE_SERVICE_ACCOUNT_CREDENTIALS)
+from decorators import recaptcha_verify
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -34,15 +45,15 @@ class UserViewSet(viewsets.ModelViewSet):
         else:
             return Response('Unauthorized', status=401)
 
-    @token_verify('verify')
+    @recaptcha_verify('verify')
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
 
-    @token_verify(recaptcha, 'verify')
+    @recaptcha_verify('verify')
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
 
-    @token_verify(recaptcha, 'verify')
+    @recaptcha_verify('verify')
     def partial_update(self, request, *args, **kwargs):
         return super().partial_update(request, *args, **kwargs)
 
@@ -66,11 +77,11 @@ class GroupViewSet(viewsets.ModelViewSet):
         else:
             return Response('Unauthorized', status=401)
 
-    @token_verify(recaptcha, 'verify')
+    @recaptcha_verify('verify')
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
 
-    @token_verify(recaptcha, 'verify')
+    @recaptcha_verify('verify')
     def partial_update(self, request, *args, **kwargs):
         return super().partial_update(request, *args, **kwargs)
 
@@ -94,11 +105,11 @@ class PermissionViewSet(viewsets.ModelViewSet):
         else:
             return Response('Unauthorized', status=401)
 
-    @token_verify(recaptcha, 'verify')
+    @recaptcha_verify('verify')
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
 
-    @token_verify(recaptcha, 'verify')
+    @recaptcha_verify('verify')
     def partial_update(self, request, *args, **kwargs):
         return super().partial_update(request, *args, **kwargs)
 

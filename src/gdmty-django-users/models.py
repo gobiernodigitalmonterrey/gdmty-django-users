@@ -4,17 +4,12 @@ from django.contrib.auth.models import Group as OriginalGroup
 from django.dispatch import receiver
 from django.db.models.signals import pre_delete
 from .managers import CustomUserManager
-from django.core.validators import RegexValidator
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.utils.translation import gettext_lazy as _
-from threadlocals.threadlocals import get_current_request
 from auditlog.registry import auditlog
 from auditlog.models import AuditlogHistoryField
 
-# Create your models here.
-
 username_validator = UnicodeUsernameValidator()
-regex_telefono = "^\d{10}$"
 
 
 class User(AbstractUser):
