@@ -46,7 +46,7 @@ class User(AbstractUser):
         super(User, self).save(*args, **kwargs)
 
     @staticmethod
-    @receiver(pre_delete, sender='users.User')
+    @receiver(pre_delete, sender='gdmty_django_users.User')
     def safe_delete_user(sender, instance, **kwargs):
         instance.safe_delete = True
         instance.save()
