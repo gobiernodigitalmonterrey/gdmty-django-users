@@ -17,7 +17,7 @@ License: GNU Affero General Public License v3 or later (AGPLv3+)
 """
 
 __title__ = "gdmty_django_users"
-__version__ = "24.3.1-dev3"
+__version__ = "24.3.1-dev4"
 __description__ = "Django module for Users models and permission adding reCAPTCHA token verification."
 __url__ = "https://github.com/SIGAMty/gdmty-django-recaptcha-enterprise"
 __author__ = "César Benjamín"
