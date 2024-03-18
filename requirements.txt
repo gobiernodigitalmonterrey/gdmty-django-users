@@ -1,4 +1,4 @@
-django==5.0
+django >= 4.2
 djangorestframework
-django-filter
-auditlog
+django-filter >= 24.1
+auditlog >= 0.0.5
