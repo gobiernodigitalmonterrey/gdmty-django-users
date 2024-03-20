@@ -1,4 +1,4 @@
-django >= 4.2
+django >= 4.1.13
 djangorestframework
-django-filter >= 24.1
-auditlog >= 0.0.5
+django-filter
+auditlog

@@ -22,14 +22,14 @@ classifiers = [
 ]
 keywords = ["django", "recaptcha", "users"]
 dependencies = [
-    "django >= 4.2",
+    "django >= 4.1.13",
     "djangorestframework",
-    "auditlog >= 0.0.5",
-    "django-filter >= 24.1",
-    "tomli; python_version < '3.10'",
+    "auditlog",
+    "django-filter",
+    "tomli; python_version < '3.11'",
 ]
 
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 
 [project.optional-dependencies]
 dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
