@@ -12,16 +12,16 @@ Email: gobiernodigital@monterrey.gob.mx
 GitHub: https://github.com/gobiernodigitalmonterrey/gdmty-drf-firebase-auth
 Package: gdmty_django_users
 PyPi: https://pypi.org/project/gdmty-django-users/
-License: Apache 2.0
+License: GNU Affero General Public License v3 or later (AGPLv3+)
 
 """
 
 __title__ = "gdmty_django_users"
-__version__ = "24.3.0"
+__version__ = "24.3.2"
 __description__ = "Django module for Users models and permission adding reCAPTCHA token verification."
 __url__ = "https://github.com/SIGAMty/gdmty-django-recaptcha-enterprise"
 __author__ = "César Benjamín"
 __author_email__ = "mathereall@gmail.com"
-__license__ = "Apache 2.0"
-__keywords__ = ["django", "recaptcha", "users"]
+__license__ = "GNU Affero General Public License v3 or later (AGPLv3+)"
+__keywords__ = ["django", "users"]
 VERSION = __version__
