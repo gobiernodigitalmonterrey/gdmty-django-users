@@ -24,7 +24,6 @@ keywords = ["django", "recaptcha", "users"]
 dependencies = [
     "django >= 4.1.13",
     "djangorestframework",
-    "auditlog",
     "django-filter",
     "tomli; python_version < '3.11'",
 ]
