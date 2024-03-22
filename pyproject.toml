@@ -49,4 +49,4 @@ push = true
 
 [tool.bumpver.file_patterns]
 "pyproject.toml" = ['version = "{version}"']
-"src/gdmty-django-users/__init__.py" = ["{version}"]
+"src/gdmty_django_users/__init__.py" = ["{version}"]
