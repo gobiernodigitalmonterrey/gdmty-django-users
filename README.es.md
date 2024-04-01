@@ -1,8 +1,6 @@
 # gdmty-django-users
 
-Este es un proyecto personalizado de backend de autenticación de Django Rest Framework llamado `gdmty-django-users`.
-Está diseñado para autenticar usuarios en el panel de administración basado en correo electrónico y contraseña, con
-verificación de token de reCaptcha.
+Es una aplicación django llamada `gdmty-django-users` de usuarios que extiende AbstractBaseUser para usar el correo electrónico como usuario. Y tiene la opción de autenticar con verificación de token reCaptcha.
 
 El proyecto es mantenido por el Gobierno de Monterrey. Puedes encontrar más información sobre el proyecto en
 su [página principal](https://github.com/gobiernodigitalmonterrey/gdmty-django-users) o reportar problemas en
@@ -10,9 +8,10 @@ el [rastreador de errores](https://github.com/gobiernodigitalmonterrey/gdmty-dja
 
 ## Características
 
-- Autenticación basada en correo electrónico y contraseña para usuarios en el panel de administración.
-- Verificación de token de reCaptcha para mayor seguridad.
-- Compatibilidad con Python 3.9 o posterior, y Django 4.1.13 o posterior.
+- Identificación de usuarios basada en el correo electrónico: Utiliza direcciones de correo electrónico como identificadores de usuario.
+- Modelo de usuario personalizado: Extiende el AbstractBaseUser de Django para proporcionar funcionalidad de usuario personalizada.
+- Diseño modular: Diseñado como una aplicación Django reutilizable para una fácil integración en diferentes proyectos.
+- Compatible con Python 3.9 o posterior, y Django 4.1.13 o posterior.
 
 ## Instalación
 
@@ -48,8 +47,8 @@ class MyModel(models.Model):
 
 ## Contribuyendo
 
-* Por favor, levanta un problema/función y nombra tu rama 'feature-n' o 'issue-n', donde 'n' es el número del problema.
-* Si pruebas este código con una versión de Python no listada arriba y todo va bien, por favor haz un fork y actualiza
+* Por favor, levanta un problema/feature y nombra tu rama 'feature-n' o 'issue-n', donde 'n' es el número del problema.
+* Si pruebas este código con una versión de Python o una paqueteria no listada arriba y todo va bien, por favor haz un fork y actualiza
   el README para incluir la versión de Python que usaste :)
 
 ## Notas adicionales
