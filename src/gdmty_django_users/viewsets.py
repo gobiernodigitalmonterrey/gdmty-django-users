@@ -23,7 +23,7 @@ from .serializers import UserSerializer, GroupSerializer, PermissionSerializer
 from .permissions import IsAuthenticatedAndSelfOrIsStaff
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
-from decorators import recaptcha_verify
+from gdmty_django_users.decorators import recaptcha_verify
 
 
 class UserViewSet(viewsets.ModelViewSet):
