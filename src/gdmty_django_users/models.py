@@ -6,14 +6,11 @@ from django.db.models.signals import pre_delete
 from .managers import CustomUserManager
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.utils.translation import gettext_lazy as _
-from auditlog.registry import auditlog
-from auditlog.models import AuditlogHistoryField
 
 username_validator = UnicodeUsernameValidator()
 
 
 class User(AbstractUser):
-    history = AuditlogHistoryField(pk_indexable=False)
     email = models.EmailField(unique=True)
     safe_delete = models.BooleanField(default=False)
     username = models.CharField(
@@ -61,7 +58,3 @@ class Group(OriginalGroup):
         proxy = True
         verbose_name = "Group"
         verbose_name_plural = "Groups"
-
-
-auditlog.register(User)
-auditlog.register(Group)
