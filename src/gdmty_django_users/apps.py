@@ -12,7 +12,7 @@ Email: gobiernodigital@monterrey.gob.mx
 GitHub: https://github.com/gobiernodigitalmonterrey/gdmty-drf-firebase-auth
 Package: gdmty_django_users
 PyPi: https://pypi.org/project/gdmty-django-users/
-License: Apache 2.0
+License: AGPL-3.0
 
 """
 
