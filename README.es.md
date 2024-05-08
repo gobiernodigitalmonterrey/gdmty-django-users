@@ -1,6 +1,6 @@
 # gdmty-django-users
 
-Es una aplicación django llamada `gdmty-django-users` de usuarios que extiende AbstractBaseUser para usar el correo electrónico como usuario. Y tiene la opción de autenticar con verificación de token reCaptcha.
+La aplicación `gdmty-django-users`es un paquete de Django que extiende la clase abstracta AbstractBaseUser para usar el correo electrónico como usuario. Y tiene la opción de autenticar con verificación de token reCaptcha.
 
 El proyecto es mantenido por el Gobierno de Monterrey. Puedes encontrar más información sobre el proyecto en
 su [página principal](https://github.com/gobiernodigitalmonterrey/gdmty-django-users) o reportar problemas en
