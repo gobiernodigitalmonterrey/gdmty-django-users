@@ -15,11 +15,19 @@ PyPi: https://pypi.org/project/gdmty-django-users/
 License: AGPL-3.0
 """
 
-import os
+from django import forms
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
-import logging
-from . import __title__
 
-log = logging.getLogger(__title__)
+#
 
-ENABLE_RECAPTCHA = getattr(settings, 'ENABLE_RECAPTCHA', False)
+
+if 'wagtail.users' in settings.INSTALLED_APPS:
+    from wagtail.users.forms import UserEditForm as WagtailUserEditForm, UserCreationForm as WagtailUserCreationForm
+
+    class GdmtyWagtailUserEditForm(WagtailUserEditForm):
+        username = forms.CharField(required=True, label=_("ID de usuario (username)"))
+
+
+    class GdmtyWagtailUserCreationForm(WagtailUserCreationForm):
+        username = forms.CharField(required=True, label=_("ID de usuario (username)"))
