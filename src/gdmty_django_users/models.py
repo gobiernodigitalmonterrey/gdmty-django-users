@@ -67,7 +67,7 @@ class User(AbstractUser):
         return self.pk
 
     def __str__(self):
-        return self.username
+        return str(self.username or self.email)
 
     def save(self, *args, **kwargs):
         if not self.username:
