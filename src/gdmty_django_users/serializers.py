@@ -27,14 +27,15 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         exclude = ['password', 'first_name', 'last_name', 'is_staff', 'is_superuser', 'user_permissions', 'safe_delete',
-                   'is_active']
-        read_only_fields = ['last_login', 'username', 'date_joined', 'email', 'groups']
+                   'is_active', 'email_verificado']
+        read_only_fields = ['id', 'last_login', 'username', 'date_joined', 'email', 'groups']
 
 
 class AdminUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        exclude = ['password', 'first_name', 'last_name']
+        exclude = ['password', 'first_name', 'last_name', 'is_staff', 'is_superuser', 'user_permissions', 'safe_delete',]
+        read_only_fields = ['id', 'last_login', 'username', 'date_joined', 'email']
 
 
 class GroupSerializer(serializers.ModelSerializer):
