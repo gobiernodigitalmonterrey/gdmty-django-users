@@ -6,8 +6,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gdmty-django-users"
-version = "24.4.2"
-description = "Custom Django Rest Framework authentication backend based on email and password for users in Administration panel with reCaptcha token verification."
+version = "24.5.4"
+description = "Extension of Django's AbstractBaseUser for user management, using email as user."
 readme = "README.md"
 authors = [{ name="Gobierno de Monterrey", email="cesar.benjamin@monterrey.gob.mx" }]
 license = { file = "LICENSE" }
@@ -31,11 +31,11 @@ requires-python = ">=3.9"
 dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
 
 [project.urls]
-"Homepage" = "https://github.com/gobiernodigital/gdmty-django-users"
-"Bug Tracker" = "https://github.com/gobiernodigital/gdmty-django-users/issues"
+"Homepage" = "https://github.com/gobiernodigitalmonterrey/gdmty-django-users"
+"Bug Tracker" = "https://github.com/gobiernodigitalmonterrey/gdmty-django-users/issues"
 
 [tool.bumpver]
-current_version = "24.4.2"
+current_version = "24.5.4"
 version_pattern = "MAJOR.MINOR.PATCH[-PYTAGNUM]"
 commit_message = "bump version {old_version} -> {new_version}"
 tag_message = "{new_version}"

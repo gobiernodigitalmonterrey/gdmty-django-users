@@ -1,15 +1,15 @@
 #!-*- coding: utf-8 -*-
 """
-Authentication backend for Django's Administration panel users based on email and password
+Package that is an extension of Django's AbstractBaseUser for user management, using email as user.
 This packages adds features such as group permissions and reCaptcha enterprise token verification.
 
 This package is published as free software under the terms of the Apache License, Version 2.0. Is developed by
 Dirección de Gobierno Digital of the Secretaría de Innovación y Gobierno Abierto of Municipality of Monterrey.
 
 Authors: ['César Benjamín García Martínez <mathereall@gmail.com>', 'Miguel Angel Hernández Cortés
-<miguelhdezc12@gmail.com>', 'César Guillermo Vázquez Álvarez <chechar.2001@gmail.com>']
+<miguelhdezc12@gmail.com>', 'César Guillermo Vázquez Álvarez <cdgva@outlook.com>']
 Email: gobiernodigital@monterrey.gob.mx
-GitHub: https://github.com/gobiernodigitalmonterrey/gdmty-drf-firebase-auth
+GitHub: https://github.com/gobiernodigitalmonterrey/gdmty-django-users
 Package: gdmty_django_users
 PyPi: https://pypi.org/project/gdmty-django-users/
 License: AGPL-3.0
@@ -51,14 +51,14 @@ class User(AbstractUser):
         OriginalGroup,
         verbose_name=_('groups'),
         blank=True,
-        related_name='custom_user_set',  # TODO: Add a related_name here
+        related_name='user_set',  # TODO: Add a related_name here
         related_query_name='user',
     )
     user_permissions = models.ManyToManyField(
         Permission,
         verbose_name=_('user permissions'),
         blank=True,
-        related_name='custom_user_set',  # TODO: Add a related_name here
+        related_name='user_set',  # TODO: Add a related_name here
         related_query_name='user',
     )
 
@@ -67,7 +67,7 @@ class User(AbstractUser):
         return self.pk
 
     def __str__(self):
-        return self.username
+        return str(self.username or self.email)
 
     def save(self, *args, **kwargs):
         if not self.username:
